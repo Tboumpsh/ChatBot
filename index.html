@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="web icon"
+      href="image/pngtree-smart-chatbot-cartoon-clipart-png-image_9015126.png"
+    />
+  </head>
+  <body>
+    <!--start code  -->
+    <!-- parent div -->
+    <div id="cont">
+      <!-- Messages in this container are made in the form of p -->
+      <div class="chat-container" id="chatContainer">
+        <!--chaT BOT HEADER-->
+        <header>
+          <h1>CHAT BOT</h1>
+        </header>
+        <p class="bot-message">Hello, how can I help you?</p>
+      </div>
+      <!-- Input from the user is placed in this section and the submit button is placed in the form -->
+      <form onsubmit="sendMessage(); return false;">
+        <input type="text" id="userInput" />
+        <input type="submit" value=" " />
+        <img src="image/send.png" alt="" />
+      </form>
+    </div>
+    <!--js link  -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+/* global Style */
+
+body,
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100% !important;
+  flex-direction: column;
+  background: #01020d;
+  background: linear-gradient(to top, #01020d 0%, #454746 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+/* parent div */
+#cont {
+  padding: 0;
+  margin: 0px;
+  position: fixed;
+  top: 0px;
+  width: 400px;
+  height: 552px;
+  border: 6px solid rgb(22, 22, 22);
+  border-radius: 10px;
+  background: url("image/V-710-Cuneiform-Script-Cast-500px_grande.jpg");
+}
+/* style for chat bot header */
+header {
+  width: 400px;
+  height: 40px;
+  background-color: rgb(129, 129, 129);
+  position: fixed;
+  top: 3px;
+  border-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+header h1 {
+  margin: 3px;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+}
+
+.chat-container {
+  padding-top: 40px;
+  overflow: auto;
+  width: 400px;
+  height: 478px;
+  background: url("");
+}
+
+.chat-container p {
+  margin: 5px;
+}
+
+/* user massage style */
+.user-message {
+  text-align: right;
+  background: #98b2ff;
+  color: #fff;
+
+  max-width: 450px;
+  padding: 15px;
+  border-radius: 15px;
+  border-bottom-right-radius: 0;
+}
+/* bot massage style */
+.bot-message {
+  text-align: left;
+  color: #3f3f3f;
+  border-bottom-left-radius: 0;
+  max-width: 450px;
+  border-radius: 15px;
+  border-bottom-left-radius: 0;
+  background: #e8e8e8;
+  margin: 0;
+  padding: 15px;
+  box-sizing: inherit;
+}
+/* form styled */
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1px;
+  width: 431px;
+  background-color: transparent;
+}
+
+form > input:first-child {
+  outline: none;
+  border: 1px solid rgb(46, 46, 46);
+  background-color: rgb(95, 93, 93);
+  height: 31px;
+  width: 374px;
+  border-radius: 5px;
+}
+
+form > input:nth-child(2) {
+  height: 33px;
+  background-color: rgb(28, 160, 28);
+  outline: none;
+  border: unset;
+  width: 87px;
+
+  border-radius: 4px;
+}
+
+form > img {
+  width: 30px;
+  position: relative;
+  left: -55px;
+}
