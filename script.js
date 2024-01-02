@@ -41,47 +41,35 @@ function sendMessage() {
     document.getElementById("userInput").value = "";
 }
 
-function predictBotResponse(input) {
-    // Convert user input to lowercase for case-insensitive matching
-    const userInput = input.toLowerCase();
-
-    // Check user input for specific questions and provide predefined answers
-    if (userInput.includes("hello") || userInput.includes("hi")) {
-        return "Hello! How can I assist you?";
-    } else if (userInput.includes("how are you")) {
-        return "I am a bot, so I do not have feelings, but thank you for asking!";
-    } else if (userInput.includes("goodbye")) {
-        return "Goodbye! If you have any more questions, feel free to ask.";
+function predictBotResponse(userQuestion) {
+    // Retrieve the stored JSON string from localStorage
+    const storedChatbotData = localStorage.getItem('chatbotData');
+  
+    // Convert the JSON string back to an object or create a new one if it doesn't exist
+    let chatbotData = storedChatbotData ? JSON.parse(storedChatbotData) : {
+      questions: [],
+      answers: []
+    };
+  
+    // Check if the user question exists in the questions array
+    const questionIndex = chatbotData.questions.indexOf(userQuestion);
+    // If the question exists, return the corresponding answer
+    if (questionIndex !== -1) {
+      return chatbotData.answers[questionIndex];
+    } else {
+      // If the question doesn't exist, prompt the user for an answer
+      const userAnswer = prompt("I don't know the answer. Can you please provide it?");
+  
+      // Save the user question and answer in the chatbotData object
+      chatbotData.questions.push(userQuestion);
+      chatbotData.answers.push(userAnswer);
+  
+      // Convert the updated object to a JSON string
+      const jsonString = JSON.stringify(chatbotData);
+  
+      // Store the JSON string in localStorage
+      localStorage.setItem('chatbotData', jsonString);
+  
+      return "Thank you for providing the answer. I will remember it for future use.";
     }
-    else if (userInput.includes("open google")) {
-        window.open('https://google.com');
-        return "open in new tab"
-    }
-    else if (userInput.includes("how's the weather") || userInput.includes("how the weather")) {
-        window.open('https://www.accuweather.com/en/ir/tehran/210841/weather-forecast/210841');
-        return "check weather in new tab"
-    }
-    else if (userInput.includes("what can you do?")) {
-        return "I can search for you and answer your questions. What would you like me to do for you?"
-    }
-    else if (userInput.includes("I love you")) {
-        return "Although I am a robot and have no feelings, I love you from the bottom of my heart."
-    }
-    else if (userInput.includes("What's new?")) {
-        window.open('https://edition.cnn.com/')
-        return "The ccn site has been opened for you. Find out about the world's news with this site "
-    }
-    else if (userInput.includes("I have a math question?") || userInput.includes("Can you answer my math question?")) {
-        window.open('https://math.microsoft.com/en')
-        return "This site helps you solve math questions. Maybe my answers are wrong."
-    }
-    else if (userInput.includes("please introduce yourself") || userInput.includes("who are you?")) {
-        window.open('https://edition.cnn.com/')
-        return "The ccn site has been opened for you. Find out about the world's news with this site "
-    }
-
-    else {
-        // If the user question does not match any predefined patterns, provide a default response
-        return "داداش بیخیال ما شو! دو خط کد زدی توقع چت جی پی تی داری؟ با دو تا else  و if دارم کار میکنم.";
-    }
-}
+  }
